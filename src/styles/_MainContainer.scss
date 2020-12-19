@@ -1,0 +1,12 @@
+.MainContainer {
+	height: 100%;
+	min-height: calc(100vh - 150px);
+	width: 100vw;
+	background-color: $primary-red;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20%;
+	flex-wrap: wrap;
+}

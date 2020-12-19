@@ -1,0 +1,15 @@
+@import './Colors';
+@import './Header.scss';
+@import './MainContainer';
+@import './DisplayContainer';
+@import './DataContainer';
+
+@import './Fonts';
+
+* {
+	padding: none;
+	margin: 0;
+	box-sizing: border-box;
+
+	font-family: $font-primary;
+}
