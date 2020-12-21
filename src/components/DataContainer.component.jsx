@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-export default function DataContainer({header, data, type }) {
+export default function DataContainer({header, data, type, children }) {
 
   const [expList, setExpList] = useState([]);
 
@@ -14,8 +14,10 @@ export default function DataContainer({header, data, type }) {
   }
 
   useEffect(() => {
-    if (data.monthlyExp) {
-      getMonthlyExpenses();
+    if(data) {
+      if (data.monthlyExp) {
+        getMonthlyExpenses();
+      }
     }
   }, []);
 
@@ -30,20 +32,26 @@ export default function DataContainer({header, data, type }) {
           <li><span>Highest expense:</span> {data.highestExp.month} {data.highestExp.amount}</li>
         </ul>
       : 
-        type === "current" ? 
-        <ul>
-          <li><span>Daily avg:</span>  {data.avgDay}</li>
-          <li><span>Weekly avg:</span>  {data.avgWeek}</li>
-          <li><span>Highest expense:</span>  {data.highestExp}</li>
-          <li><span>Total:</span>  ${data.total}</li>
-        </ul>
+        type === "current" ?
+        <div>
+          <ul>
+            <li><span>Daily avg:</span> {data.avgDay}</li>
+            <li><span>Weekly avg:</span> {data.avgWeek}</li>
+            <li><span>Highest expense:</span> {data.highestExp}</li>
+            <li><span>Total:</span> ${data.total}</li>
+          </ul>
+          <button>+ Add Expense</button>
+        </div>
       :
         type === "single" ? 
         <ul>
           {expList}
         </ul>
-      :
-        <h3>Something went wrong</h3>
+      : type === "text" ?
+        <div>
+          {children}
+        </div>
+      :  <h3>Something went wrong</h3>
       }
     </div>
   )

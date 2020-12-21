@@ -6,7 +6,15 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	padding: 0 20%;
 	flex-wrap: wrap;
+
+	&--subContainer {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
 }

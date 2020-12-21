@@ -5,9 +5,11 @@ export default function DislayContainer(props) {
   return (
     <div className="DisplayContainer">
       <header>
+      {props.logo ? 
         <div className="DisplayContainer--logo">
-          <img src={placeholder} alt="placeholder L"/>
+          <img src={placeholder} alt="placeholder L"/> 
         </div>
+        : ''}
         <h2>{props.title}</h2>
       </header>
       <section className="DisplayContainer--main">

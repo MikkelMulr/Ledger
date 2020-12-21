@@ -25,6 +25,18 @@
 		}
 	}
 
+	button {
+		background-color: $dark-blue;
+		border: none;
+		outline: none;
+		color: $primary-red;
+		width: 10rem;
+		height: 3rem;
+		position: relative;
+		left: 22rem;
+		font-size: 1rem;
+	}
+
 	span {
 		color: $primary-red;
 	}
