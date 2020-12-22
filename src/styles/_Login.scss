@@ -1,4 +1,13 @@
 .Login {
+	&--main {
+		padding: 0 2em;
+		width: 100%;
+
+		@media (min-width: 43em) {
+			padding: 0;
+		}
+	}
+
 	button {
 		background-color: $dark-blue;
 		width: 10rem;

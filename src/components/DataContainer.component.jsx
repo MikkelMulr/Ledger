@@ -40,7 +40,10 @@ export default function DataContainer({header, data, type, children }) {
             <li><span>Highest expense:</span> {data.highestExp}</li>
             <li><span>Total:</span> ${data.total}</li>
           </ul>
+          <div className="btnContainer">
+
           <button>+ Add Expense</button>
+          </div>
         </div>
       :
         type === "single" ? 

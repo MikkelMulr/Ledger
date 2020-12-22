@@ -1,10 +1,15 @@
 .DisplayContainer {
-	width: 550px;
-	height: 720px;
+	width: calc(100vw - 1em);
+	height: 45em;
 	background-color: $light-blue;
+	margin-bottom: 2rem;
+
+	@media (min-width: 43em) {
+		width: 30em;
+	}
 
 	header {
-		height: 10rem;
+		height: 8em;
 		width: 100%;
 		background-color: $dark-blue;
 		display: flex;
@@ -13,12 +18,10 @@
 		justify-content: flex-end;
 		padding: 2rem;
 
-		img {
-			height: 7rem;
-		}
-
 		h2 {
-			padding-left: 30%;
+			width: 100%;
+			text-align: center;
+			font-size: 1.25em;
 			color: #fff;
 		}
 	}
@@ -27,11 +30,25 @@
 		background-color: $dark-blue;
 		border-radius: 50%;
 		border: 5px solid $primary-red;
-		width: 120px;
-		height: 120px;
+		width: 6em;
+		height: 6em;
 		position: relative;
-		bottom: -80px;
-		left: 10px;
+		bottom: -70px;
+		left: -10px;
+
+		@media (min-width: 43em) {
+			width: 7.5em;
+			height: 7.5em;
+			bottom: -80px;
+			left: 10px;
+		}
+
+		img {
+			height: 5.5em;
+			@media (min-width: 43em) {
+				height: 7em;
+			}
+		}
 	}
 
 	&--main {
