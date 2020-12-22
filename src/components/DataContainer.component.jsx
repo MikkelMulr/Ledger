@@ -1,21 +1,23 @@
 import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
+import {setView} from '../redux/actions/index';
 
-export default function DataContainer({header, data, type, children }) {
+function DataContainer(props) {
 
   const [expList, setExpList] = useState([]);
 
   const getMonthlyExpenses = () => {
-    let list = data.monthlyExp.map(exp => {
+    let list = props.data.monthlyExp.map(exp => {
       return (
-        <li>{header} {exp.date}: {exp.amount}</li>
+        <li>{props.header} {exp.date}: {exp.amount}</li>
       )
     })
     setExpList(list);
   }
 
   useEffect(() => {
-    if(data) {
-      if (data.monthlyExp) {
+    if(props.data) {
+      if (props.data.monthlyExp) {
         getMonthlyExpenses();
       }
     }
@@ -23,39 +25,55 @@ export default function DataContainer({header, data, type, children }) {
 
   return (
     <div className="DataContainer">
-      <h3>{header}</h3>
+      <h3>{props.header}</h3>
 
-      {type === "toDate" ? 
+      {props.type === "toDate" ? 
         <ul>
-          <li><span>Total:</span> ${data.total}</li>
-          <li><span>Monthly avg:</span> {data.avgMonth}</li>
-          <li><span>Highest expense:</span> {data.highestExp.month} {data.highestExp.amount}</li>
+          <li><span>Total:</span> ${props.data.total}</li>
+          <li><span>Monthly avg:</span> {props.data.avgMonth}</li>
+          <li><span>Highest expense:</span> {props.data.highestExp.month} {props.data.highestExp.amount}</li>
         </ul>
       : 
-        type === "current" ?
+        props.type === "current" ?
         <div>
           <ul>
-            <li><span>Daily avg:</span> {data.avgDay}</li>
-            <li><span>Weekly avg:</span> {data.avgWeek}</li>
-            <li><span>Highest expense:</span> {data.highestExp}</li>
-            <li><span>Total:</span> ${data.total}</li>
+            <li><span>Daily avg:</span> {props.data.avgDay}</li>
+            <li><span>Weekly avg:</span> {props.data.avgWeek}</li>
+            <li><span>Highest expense:</span> {props.data.highestExp}</li>
+            <li><span>Total:</span> ${props.data.total}</li>
           </ul>
           <div className="btnContainer">
 
-          <button>+ Add Expense</button>
+          <button onClick={() => props.setView('newexp')}>+ Add Expense</button>
           </div>
         </div>
       :
-        type === "single" ? 
+        props.type === "single" ? 
         <ul>
           {expList}
         </ul>
-      : type === "text" ?
+      : props.type === "text" ?
         <div>
-          {children}
+          {props.children}
         </div>
       :  <h3>Something went wrong</h3>
       }
     </div>
   )
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setView: (view) => dispatch(setView(view))
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    view: state.view
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DataContainer);
+
+

@@ -3,6 +3,7 @@ import DisplayContainer from './DisplayContainer.component';
 import DataContainer from './DataContainer.component';
 import Login from './Login.component';
 import About from './About.component';
+import NewExpenseMonth from './NewExpenseForm.component';
 import {connect} from 'react-redux';
 import {setView} from '../redux/actions/index';
 
@@ -30,7 +31,10 @@ function MainContainer(props) {
         <Login />
       
       : props.view==="about" ?
-      <About />
+        <About />
+
+      : props.view==="newexp" ?
+        <NewExpenseMonth />
 
       : <h2>Something went wrong</h2>
       }

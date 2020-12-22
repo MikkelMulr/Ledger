@@ -32,9 +32,9 @@ function Login(props) {
           <form>
             <input type="text" name="username" placeholder="username" onChange={(e) => setusername(e.target.value)}/>
             <input type="password" name="password" placeholder="password" onChange={(e) => setpassword(e.target.value)}/>
+        <button onClick={() => verifyUser(username, password)}>Login</button>
           </form>
         </section>
-        <button onClick={() => verifyUser(username, password)}>Login</button>
       </DisplayContainer>
     </div>
   )

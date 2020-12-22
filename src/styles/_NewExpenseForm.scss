@@ -1,2 +1,62 @@
 .ExpenseForm {
+	&--subcontainer {
+		background-color: $header-clr;
+		height: 100%;
+		width: 100%;
+		padding: 1em;
+		position: relative;
+		right: 1em;
+
+		h2 {
+			color: #fff;
+			padding-bottom: 1em;
+		}
+
+		&--data {
+			color: #fff;
+
+			p {
+				padding: 0.25em 0;
+				span {
+					color: $primary-red;
+				}
+			}
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+
+			input {
+				background-color: $primary-red;
+				border: none;
+				outline: none;
+				color: #fff;
+				padding: 0.5em;
+				transition: all 0.15s linear;
+				margin-bottom: 1em;
+
+				&::placeholder {
+					color: #fff;
+				}
+
+				&:focus {
+					border-bottom: 4px solid $dark-blue;
+				}
+			}
+		}
+
+		button {
+			background-color: $dark-blue;
+			width: 10rem;
+			height: 3rem;
+			color: $primary-red;
+			border: none;
+			outline: none;
+			font-size: 1.25rem;
+			margin-top: 1em;
+		}
+	}
 }
