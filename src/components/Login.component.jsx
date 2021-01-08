@@ -13,7 +13,7 @@ function Login(props) {
     if (un === testCredentials.username) {
       if (pw === testCredentials.password) {
         props.setVerifyUser(true);
-        props.setView('home')
+        props.setView('home');
       } else {
         console.log('peepeepoopoo');
       }
@@ -24,6 +24,8 @@ function Login(props) {
     setpassword('');
     setusername('');
   }, []);
+
+
   
   return (
     <div className="Login">
