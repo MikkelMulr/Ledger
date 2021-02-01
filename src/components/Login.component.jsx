@@ -25,8 +25,6 @@ function Login(props) {
     setusername('');
   }, []);
 
-
-  
   return (
     <div className="Login">
       <DisplayContainer logo={true} title="Login">
